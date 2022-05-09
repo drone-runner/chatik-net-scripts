@@ -28,9 +28,6 @@
 
 use strict;
 use IO::Socket ();
-use LWP::UserAgent;
-use HTTP::Request;
-use URI::Escape;
 use POSIX;
 
 my ($PORT, $DHOST, $DPORT, $BINDADDR);
