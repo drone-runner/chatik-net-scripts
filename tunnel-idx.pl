@@ -90,13 +90,12 @@ sub Run {
 
 	my ($fh, $nick,$user,$authpass);
 
-	my  $color=1;
+	my $color=1;
 
 	$ch->autoflush();
 	$th->autoflush();
 
 	while ($ch || $th) {
-
 		my $rin = "";
 
 		vec($rin, fileno($ch), 1) = 1 if $ch;
@@ -145,11 +144,13 @@ sub Run {
 			if ($result == 0) {
 				exit 0;
 			}
-			$cbuffer=~ s/%C.+%//;
-			$cbuffer=~ s/%F.+%//;
-			$cbuffer=~ s/%I(.+)%/ *\1* /;	
+			$cbuffer=~ s/%C......%//g;
+			$cbuffer=~ s/%C.%//g;
+			$cbuffer=~ s/%F.%//g;
+			$cbuffer=~ s/%F..%//g;
+			$cbuffer=~ s/%I(([a-z]|[A-Z]|[0-9])+)%/ *\1* /g;	
 		}
-		$tbuffer=~ s/\/\/(([a-z]|[0-9])+)/%I\1%/;
+		$tbuffer=~ s/\/\/(([a-z]|[A-Z]|[0-9])+)/%I\1%/;
 		if ($fh  &&  $tbuffer) {
 			(print $fh $tbuffer);
 		}
@@ -171,4 +172,4 @@ sub Run {
 		}
 	}
 }
-# EOF/20220509
+# EOF/20220525
