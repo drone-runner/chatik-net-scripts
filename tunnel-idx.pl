@@ -146,11 +146,12 @@ sub Run {
 			}
 			$cbuffer=~ s/%C......%//g;
 			$cbuffer=~ s/%C.%//g;
-			$cbuffer=~ s/%F.%//g;
-			$cbuffer=~ s/%F..%//g;
-			$cbuffer=~ s/%I(([a-z]|[A-Z]|[0-9])+)%/ *\1* /g;	
+			$cbuffer=~ s/%Fb%//g;
+			$cbuffer=~ s/%Fi%//g;
+			$cbuffer=~ s/%Fbi%//g;
+			$cbuffer=~ s/%I((_|[a-z]|[A-Z]|[0-9])+)%/ *\1* /g;	
 		}
-		$tbuffer=~ s/\/\/(([a-z]|[A-Z]|[0-9])+)/%I\1%/;
+		$tbuffer=~ s/\/\/((_|[a-z]|[A-Z]|[0-9])+)/%I\1%/;
 		if ($fh  &&  $tbuffer) {
 			(print $fh $tbuffer);
 		}
