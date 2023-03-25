@@ -10,6 +10,9 @@ client, for a small Polish webchat descended from czat.onet.pl, called chatik.ne
 
 - tunnel-idx.pl  –  Perl tunnel for chatik.net
 
+- hovno          –  slightly modified Perl tunnel
+- torify-hovno   –  torsocks(1) torify wrapper for "hovno"
+
 The audience for this software are advanced IRC users wishing to use the chat
 with their favorite IRC client.
 
